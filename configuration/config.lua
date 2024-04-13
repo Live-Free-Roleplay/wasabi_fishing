@@ -22,7 +22,7 @@ Config.bait = {
 
 Config.fishingRod = {
     itemName = 'fishingrod', -- Item name of fishing rod
-    breakChance = 25 --Chance of breaking pole when failing skillbar (Setting to 0 means never break)
+    breakChance = 5 --Chance of breaking pole when failing skillbar (Setting to 0 means never break)
 }
 
 Config.timeForBite = { -- Set min and max random range of time it takes for fish to be on the line.
