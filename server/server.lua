@@ -66,16 +66,16 @@ RegisterNetEvent('wasabi_fishing:sellFish', function()
         KickPlayer(source, Strings.kicked)
         return
     end
-    for i=1, #Config.fish do
-        if HasItem(source, Config.fish[i].item) > 0 then
+    for i=1, #Config.sellFish do
+        if HasItem(source, Config.sellFish[i].item) > 0 then
             local rewardAmount = 0
-            for j=1, HasItem(source, Config.fish[i].item) do
-                rewardAmount = rewardAmount + math.random(Config.fish[i].price[1], Config.fish[i].price[2])
+            for j=1, HasItem(source, Config.sellFish[i].item) do
+                rewardAmount = rewardAmount + math.random(Config.sellFish[i].price[1], Config.sellFish[i].price[2])
             end
             if rewardAmount > 0 then
                 AddMoney(source, 'money', rewardAmount)
-                TriggerClientEvent('wasabi_fishing:notify', source, Strings.sold_for, (Strings.sold_for_desc):format(HasItem(source, Config.fish[i].item), Config.fish[i].label, addCommas(rewardAmount)), 'success')
-                RemoveItem(source, Config.fish[i].item, HasItem(source, Config.fish[i].item))
+                TriggerClientEvent('wasabi_fishing:notify', source, Strings.sold_for, (Strings.sold_for_desc):format(HasItem(source, Config.sellFish[i].item), Config.sellFish[i].label, addCommas(rewardAmount)), 'success')
+                RemoveItem(source, Config.sellFish[i].item, HasItem(source, Config.sellFish[i].item))
             end
         end
     end
